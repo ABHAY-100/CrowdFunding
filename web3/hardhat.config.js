@@ -2,11 +2,11 @@
 module.exports = {
   solidity: {
     version: '0.8.27',
-    defaultNetwork: 'goerli',
+    defaultNetwork: 'holesky',
     networks: {
       hardhat: {},
-      goerli: {
-        url: 'https://rpc.ankr.com/eth_goerli',
+      holesky: {
+        url: 'https://rpc.ankr.com/eth_holesky',
         accounts: [`0x${process.env.PRIVATE_KEY}`]
       }
     },
