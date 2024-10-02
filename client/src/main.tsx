@@ -1,13 +1,23 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import { App } from "./App";
-import { ThirdwebProvider } from "thirdweb/react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
+import App from "./app";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement as HTMLElement);
+
+  root.render(
     <ThirdwebProvider>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </ThirdwebProvider>
-  </React.StrictMode>
-);
+  );
+} else {
+  console.error("Root element not found");
+}
